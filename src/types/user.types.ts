@@ -36,7 +36,7 @@
 // }
 
 // src/types/user.types.ts
-
+import mongoose, {Document} from "mongoose";
 // Interface for a user document in the database
 export interface IUser {
     id?: string; 
@@ -62,9 +62,12 @@ export interface UserProfile {
     username?: string; 
 }
 
-// Optional: Extend the User interface for Mongoose documents
-export interface UserDocument extends IUser {
-    _id?: string; 
-    createdAt?: Date; 
-    updatedAt?: Date; 
+
+
+export interface IFinance extends Document {
+    date: Date,
+    amount: number,
+    category: string,
+    description: string,
+    user: mongoose.Schema.Types.ObjectId
 }
